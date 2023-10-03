@@ -4,7 +4,7 @@ on:
  pull_request:
 #    branches: [ "master" ]
     branches:
-    - main
+    - master
 
 jobs:
   setup_and_build:
