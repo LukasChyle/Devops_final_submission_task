@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MenuManipulatorImplements implements MenuManipulator {
+public class MenuManipulatorImplement implements MenuManipulator {
 
     MenuRepo menuRepo;
     @Autowired
-    public MenuManipulatorImplements(MenuRepo menuRepo) {
+    public MenuManipulatorImplement(MenuRepo menuRepo) {
         this.menuRepo = menuRepo;
     }
 
