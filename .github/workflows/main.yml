@@ -5,12 +5,12 @@ on:
 #    branches: [ "master" ]
     branches:
     - master
-
 jobs:
   setup_and_build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       - name: Set execute permissions on gradlew
         run: chmod +x ./gradlew
