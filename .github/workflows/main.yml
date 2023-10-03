@@ -30,39 +30,40 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: app-jar
-         path: build/libs/Devops_group_examination6-0.0.1-SNAPSHOT.jar
+         path: build/libs/Devops_final_submission_task-0.0.1-SNAPSHOT.jar
         
 
-  docker_build_and_push:
-    needs: setup_and_build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+#  docker_build_and_push:
+#    needs: setup_and_build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Download app jar
+#        uses: actions/download-artifact@v2
+#        with:
+#         name: app-jar
+#         path: build/libs/
+#
+#      - name: Setup Docker
+#        run: |
+#          sudo systemctl start docker
+#          docker --version
+#
+#      - name: Build new image
+#        run: docker build -t devops-menu-project .
+#
+#      - name: Login to GitHub Container Registry
+#        run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u Jonathanh162 --password-stdin
+#
+#      - name: Tag and Push Docker Image
+#        run: |
+#          docker tag devops-menu-project ghcr.io/jonathanh162/devops-menu-project:latest 
+#          docker push ghcr.io/jonathanh162/devops-menu-project:latest
 
-      - name: Download app jar
-        uses: actions/download-artifact@v2
-        with:
-         name: app-jar
-         path: build/libs/
+#  fake_deploy:
+#    needs: docker_build_and_push
+#    runs-on: ubuntu-latest
+#    steps:
+#      - run: 'echo "Deploying image: ghcr.io/jonathanh162/devops-menu-project:latest to test environment"'
 
-      - name: Setup Docker
-        run: |
-          sudo systemctl start docker
-          docker --version
-
-      - name: Build new image
-        run: docker build -t devops-menu-project .
-
-      - name: Login to GitHub Container Registry
-        run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u Jonathanh162 --password-stdin
-
-      - name: Tag and Push Docker Image
-        run: |
-          docker tag devops-menu-project ghcr.io/jonathanh162/devops-menu-project:latest 
-          docker push ghcr.io/jonathanh162/devops-menu-project:latest
-
-  fake_deploy:
-    needs: docker_build_and_push
-    runs-on: ubuntu-latest
-    steps:
-      - run: 'echo "Deploying image: ghcr.io/jonathanh162/devops-menu-project:latest to test environment"'
