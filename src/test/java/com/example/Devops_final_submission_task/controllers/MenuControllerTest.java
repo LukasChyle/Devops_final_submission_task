@@ -1,7 +1,7 @@
-package com.example.devops_group_examination6.controllers;
+package com.example.Devops_final_submission_task.controllers;
 
-import com.example.devops_group_examination6.Repositories.MenuRepo;
-import com.example.devops_group_examination6.service.MenuManipulator;
+import com.example.Devops_final_submission_task.Repositories.MenuRepo;
+import com.example.Devops_final_submission_task.service.MenuManipulator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

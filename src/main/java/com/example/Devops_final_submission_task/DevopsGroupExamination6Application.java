@@ -1,4 +1,4 @@
-package com.example.devops_group_examination6;
+package com.example.Devops_final_submission_task;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

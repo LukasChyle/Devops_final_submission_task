@@ -1,6 +1,6 @@
-package com.example.devops_group_examination6.bootstrap;
+package com.example.Devops_final_submission_task.bootstrap;
 
-import com.example.devops_group_examination6.Repositories.MenuRepo;
+import com.example.Devops_final_submission_task.Repositories.MenuRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

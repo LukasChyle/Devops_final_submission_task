@@ -1,6 +1,6 @@
-package com.example.devops_group_examination6.service;
+package com.example.Devops_final_submission_task.service;
 
-import com.example.devops_group_examination6.Repositories.MenuRepo;
+import com.example.Devops_final_submission_task.Repositories.MenuRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

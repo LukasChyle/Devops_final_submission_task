@@ -1,4 +1,4 @@
-package com.example.devops_group_examination6.Repositories;
+package com.example.Devops_final_submission_task.Repositories;
 
 
 import org.springframework.stereotype.Component;

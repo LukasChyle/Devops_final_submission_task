@@ -1,4 +1,4 @@
-package com.example.devops_group_examination6.service;
+package com.example.Devops_final_submission_task.service;
 
 public interface MenuManipulator {
 
