@@ -2,9 +2,9 @@ name: setup-build-test build-push-image
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
   push:
-    branches-ignore: [ "master" ]
+    branches-ignore: ["master"]
 
 env:
   REGISTRY: ghcr.io
