@@ -23,7 +23,10 @@ class BootstrapDataTest {
     @InjectMocks
     private BootstrapData bootstrapData;
 
+    // sha: fail 811569cb489de8efe4e8cd1fc88c067e58848b3f
+    // sha: solve dfb51f8a63cc1d2f7d4d51cecfadde1f3ed20417
     // test must be 7 to succeed
+
     @Test
     void testMenuReader() {
         when(menuRepo.getMenuMap()).thenReturn(mockMenuMap);
