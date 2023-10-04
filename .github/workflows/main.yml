@@ -1,6 +1,5 @@
 name: setup-build-test build-push-image
 
-
 on:
   push:
   pull_request:
