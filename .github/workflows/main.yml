@@ -1,11 +1,16 @@
-name: Build, Test, and Deploy Java Spring Boot Application
+name: setup-build-test build-push-image
+
 
 on:
   push:
-on:
   pull_request:
     branches:
       - master
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   setup_and_build:
     runs-on: ubuntu-latest
@@ -36,37 +41,35 @@ jobs:
           path: build/libs/Devops_final_submission_task-0.0.1-SNAPSHOT.jar
 
 
-#  docker_build_and_push:
-#    needs: setup_and_build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Download app jar
-#        uses: actions/download-artifact@v2
-#        with:
-#         name: app-jar
-#         path: build/libs/
-#
-#      - name: Setup Docker
-#        run: |
-#          sudo systemctl start docker
-#          docker --version
-#
-#      - name: Build new image
-#        run: docker build -t devops-menu-project .
-#
-#      - name: Login to GitHub Container Registry
-#        run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u Jonathanh162 --password-stdin
-#
-#      - name: Tag and Push Docker Image
-#        run: |
-#          docker tag devops-menu-project ghcr.io/jonathanh162/devops-menu-project:latest 
-#          docker push ghcr.io/jonathanh162/devops-menu-project:latest
 
-#  fake_deploy:
-#    needs: docker_build_and_push
-#    runs-on: ubuntu-latest
-#    steps:
-#      - run: 'echo "Deploying image: ghcr.io/jonathanh162/devops-menu-project:latest to test environment"'
+  build-and-push-image:
+    runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
