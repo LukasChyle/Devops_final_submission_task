@@ -29,6 +29,9 @@ public class BootstrapData implements CommandLineRunner {
                         .forEachOrdered(line -> menuRepo.getMenuMap().put(menuRepo.getMenuMap().size(), line));
 
             }
+
+            System.out.println("this code line is to make a merge conflict...");
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
