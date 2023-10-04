@@ -3,7 +3,7 @@ name: setup-build-test build-push-image
 on:
   push:
     branches:
-      - '!master'
+      - ignore master
   pull_request:
     branches:
       - master
