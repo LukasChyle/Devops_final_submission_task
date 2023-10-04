@@ -27,7 +27,7 @@ class BootstrapDataTest {
     void testMenuReader() {
         when(menuRepo.getMenuMap()).thenReturn(mockMenuMap);
         bootstrapData.menuReader();
-        verify(mockMenuMap, times(7)).put(anyInt(), anyString());
+        verify(mockMenuMap, times(8)).put(anyInt(), anyString());
     }
 }
 
