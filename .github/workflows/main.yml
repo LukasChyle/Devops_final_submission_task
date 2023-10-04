@@ -1,12 +1,12 @@
 name: setup-build-test build-push-image
 
 on:
-  push:
-    branches:
-      - ignore master
   pull_request:
     branches:
       - master
+  push:
+    branches:
+      - ignore master
 
 env:
   REGISTRY: ghcr.io
