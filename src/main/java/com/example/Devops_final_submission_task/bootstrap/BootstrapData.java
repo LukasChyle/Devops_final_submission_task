@@ -25,6 +25,9 @@ public class BootstrapData implements CommandLineRunner {
             assert inputStream != null;
             try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
 
+                // Create conflict please
+                System.out.println("this code is here to create a merge conflict");
+
                 bufferedReader.lines()
                         .forEachOrdered(line -> menuRepo.getMenuMap().put(menuRepo.getMenuMap().size(), line));
 

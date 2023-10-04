@@ -23,9 +23,6 @@ class BootstrapDataTest {
     @InjectMocks
     private BootstrapData bootstrapData;
 
-    // test that the menu is 7 day
-    // This comment is to make pull request merge conflict
-    // 123654
     @Test
     void testMenuReader() {
         when(menuRepo.getMenuMap()).thenReturn(mockMenuMap);
