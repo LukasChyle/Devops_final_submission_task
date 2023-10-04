@@ -23,7 +23,7 @@ class BootstrapDataTest {
     @InjectMocks
     private BootstrapData bootstrapData;
 
-    // test must be 7 to succeed.
+    // test must be 7 to succeed
     @Test
     void testMenuReader() {
         when(menuRepo.getMenuMap()).thenReturn(mockMenuMap);
