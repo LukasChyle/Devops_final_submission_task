@@ -23,12 +23,12 @@ class BootstrapDataTest {
     @InjectMocks
     private BootstrapData bootstrapData;
 
-    // test that the menu is 7 day...
+    // test that the menu is 7 day.
     @Test
     void testMenuReader() {
         when(menuRepo.getMenuMap()).thenReturn(mockMenuMap);
         bootstrapData.menuReader();
-        verify(mockMenuMap, times(7)).put(anyInt(), anyString());
+        verify(mockMenuMap, times(8)).put(anyInt(), anyString());
     }
 }
 
